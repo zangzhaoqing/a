@@ -41,7 +41,10 @@
     	}
     },
     created:function(){
-    	
+    	this.$watch('msg',function(a,b){
+    		console.log(a)
+    		console.log(b)
+    	})
     },
     methods:{
     	showChildMsg(mes,a,b){
