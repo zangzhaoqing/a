@@ -27,14 +27,21 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'jquery': 'jquery' 
     }
   },
   devServer: {
     historyApiFallback: true,
     noInfo: true
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    })
+ ]
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -54,3 +61,6 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.OccurrenceOrderPlugin()
   ])
 }
+//在最后添加一个plugins配置
+  
+

@@ -1,15 +1,20 @@
 <template>
-  <main-layout>
-    <p>Page not found</p>
-  </main-layout>
+    <user-profile v-ref:profile></user-profile>
 </template>
-
 <script>
-  import MainLayout from '../layouts/Main.vue'
+import userProfile from '../components/userProfile.vue';
+export default{
+	components:{
+		userProfile
+	},
+	created:function(){
+    	console.log(userProfile)	
+ 	}
+//	var child=userProfile.$refs.profile;
+	
+}
 
-  export default {
-    components: {
-      MainLayout
-    }
-  }
 </script>
+<style scoped>
+	
+</style>
