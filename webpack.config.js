@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 
+
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -22,13 +23,25 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      }
+      },
+      {
+      	test: /\.sass$/,
+  			loaders: ['style', 'css', 'sass']
+      },
+      {
+    	test: /\.css$/,
+    	loader: 'style-loader'
+  		},
+  		{
+			test: /\.less$/,
+			loader: "style-loader!css-loader!less-loader"	
+			},
     ]
   },
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'jquery': 'jquery' 
+      'jquery': 'jquery'
     }
   },
   devServer: {
